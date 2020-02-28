@@ -11,12 +11,12 @@
         "type": "mqtt in",
         "z": "18117fb3.11a3b",
         "name": "motion",
-        "topic": "HHZ/125/m5stick2/motion",
+        "topic": "hhz/125/m5stick2/motion",
         "qos": "2",
         "datatype": "auto",
         "broker": "15b3b035.3209b",
         "x": 110,
-        "y": 240,
+        "y": 260,
         "wires": [
             [
                 "825854bb.eddf08"
@@ -28,7 +28,7 @@
         "type": "mqtt out",
         "z": "18117fb3.11a3b",
         "name": "motion_sim",
-        "topic": "HHZ/125/m5stick2/motion",
+        "topic": "hhz/125/m5stick2/motion",
         "qos": "",
         "retain": "",
         "broker": "15b3b035.3209b",
@@ -43,8 +43,8 @@
         "name": "motion_sensor_switch",
         "label": "Motion Sensor Simulation",
         "tooltip": "",
-        "group": "b797115c.f567c",
-        "order": 1,
+        "group": "26536ce7.a0ede4",
+        "order": 6,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -72,136 +72,68 @@
         "type": "mqtt in",
         "z": "18117fb3.11a3b",
         "name": "temperature",
-        "topic": "HHZ/125/m5stick1/temperature",
+        "topic": "hhz/125/m5stick1/temperature",
         "qos": "2",
         "datatype": "auto",
         "broker": "15b3b035.3209b",
         "x": 130,
-        "y": 300,
+        "y": 320,
         "wires": [
             [
-                "e319a6d3.148888",
                 "c78aa12c.61c25"
             ]
         ]
-    },
-    {
-        "id": "e319a6d3.148888",
-        "type": "ui_text",
-        "z": "18117fb3.11a3b",
-        "group": "b797115c.f567c",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Temperatur",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "x": 370,
-        "y": 300,
-        "wires": []
     },
     {
         "id": "d184e100.e4f2c",
         "type": "mqtt in",
         "z": "18117fb3.11a3b",
         "name": "humidity",
-        "topic": "HHZ/125/m5stick1/humidity",
+        "topic": "hhz/125/m5stick1/humidity",
         "qos": "2",
         "datatype": "auto",
         "broker": "15b3b035.3209b",
         "x": 120,
-        "y": 360,
+        "y": 380,
         "wires": [
             [
-                "1439e777.4d55e9",
                 "ff40eed0.92219"
             ]
         ]
-    },
-    {
-        "id": "1439e777.4d55e9",
-        "type": "ui_text",
-        "z": "18117fb3.11a3b",
-        "group": "b797115c.f567c",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Luftfeuchtigkeit",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "x": 380,
-        "y": 360,
-        "wires": []
     },
     {
         "id": "5759cf26.71fd4",
         "type": "mqtt in",
         "z": "18117fb3.11a3b",
         "name": "airquality",
-        "topic": "HHZ/125/m5stick1/airquality",
+        "topic": "hhz/125/m5stick1/airquality",
         "qos": "2",
         "datatype": "auto",
         "broker": "15b3b035.3209b",
         "x": 120,
-        "y": 420,
+        "y": 440,
         "wires": [
             [
-                "b6d321eb.af7d1",
                 "1dc16605.d3cb1a"
             ]
         ]
     },
     {
-        "id": "b6d321eb.af7d1",
-        "type": "ui_text",
-        "z": "18117fb3.11a3b",
-        "group": "b797115c.f567c",
-        "order": 9,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Luftqualität",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "x": 370,
-        "y": 420,
-        "wires": []
-    },
-    {
         "id": "d7d60608.e1b2b8",
         "type": "mqtt in",
         "z": "18117fb3.11a3b",
-        "name": "brightness",
-        "topic": "HHZ/125/m5stick1/brightness",
+        "name": "luminosity",
+        "topic": "hhz/125/m5stick1/luminosity",
         "qos": "2",
         "datatype": "auto",
         "broker": "15b3b035.3209b",
         "x": 120,
-        "y": 480,
+        "y": 500,
         "wires": [
             [
-                "86b5d714.5e3df8",
                 "736c95b4.9828bc"
             ]
         ]
-    },
-    {
-        "id": "86b5d714.5e3df8",
-        "type": "ui_text",
-        "z": "18117fb3.11a3b",
-        "group": "b797115c.f567c",
-        "order": 11,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Helligkeit",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "x": 360,
-        "y": 480,
-        "wires": []
     },
     {
         "id": "736c95b4.9828bc",
@@ -209,11 +141,11 @@
         "z": "18117fb3.11a3b",
         "name": "g_bright1",
         "group": "b797115c.f567c",
-        "order": 12,
+        "order": 6,
         "width": 0,
         "height": 0,
         "gtype": "wave",
-        "title": "",
+        "title": "Luminosity",
         "label": "lx",
         "format": "{{value}}",
         "min": 0,
@@ -226,7 +158,7 @@
         "seg1": "",
         "seg2": "",
         "x": 580,
-        "y": 480,
+        "y": 500,
         "wires": []
     },
     {
@@ -235,11 +167,11 @@
         "z": "18117fb3.11a3b",
         "name": "g_air1",
         "group": "b797115c.f567c",
-        "order": 10,
+        "order": 5,
         "width": 0,
         "height": 0,
         "gtype": "gage",
-        "title": "",
+        "title": "Air Quality",
         "label": "ppm",
         "format": "{{value}}",
         "min": 0,
@@ -252,7 +184,7 @@
         "seg1": "",
         "seg2": "",
         "x": 570,
-        "y": 420,
+        "y": 440,
         "wires": []
     },
     {
@@ -261,24 +193,24 @@
         "z": "18117fb3.11a3b",
         "name": "g_humid1",
         "group": "b797115c.f567c",
-        "order": 8,
+        "order": 4,
         "width": 0,
         "height": 0,
         "gtype": "gage",
-        "title": "",
+        "title": "Humidity",
         "label": "%",
         "format": "{{value}}",
         "min": 0,
         "max": "100",
         "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
+            "#ca3838",
+            "#00df00",
+            "#0000ff"
         ],
-        "seg1": "",
-        "seg2": "",
+        "seg1": "40",
+        "seg2": "60",
         "x": 580,
-        "y": 360,
+        "y": 380,
         "wires": []
     },
     {
@@ -287,11 +219,11 @@
         "z": "18117fb3.11a3b",
         "name": "g_temp1",
         "group": "b797115c.f567c",
-        "order": 6,
+        "order": 3,
         "width": 0,
         "height": 0,
         "gtype": "gage",
-        "title": "",
+        "title": "Temperature",
         "label": "°C",
         "format": "{{value}}",
         "min": "15",
@@ -304,41 +236,15 @@
         "seg1": "",
         "seg2": "",
         "x": 580,
-        "y": 300,
+        "y": 320,
         "wires": []
-    },
-    {
-        "id": "14e695c4.11ce6a",
-        "type": "ui_numeric",
-        "z": "18117fb3.11a3b",
-        "name": "",
-        "label": "Temperature Sensor Simulation",
-        "tooltip": "",
-        "group": "b797115c.f567c",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "wrap": false,
-        "passthru": true,
-        "topic": "",
-        "format": "{{value}}",
-        "min": "15",
-        "max": "40",
-        "step": 1,
-        "x": 190,
-        "y": 140,
-        "wires": [
-            [
-                "aed25d75.7d3ae"
-            ]
-        ]
     },
     {
         "id": "aed25d75.7d3ae",
         "type": "mqtt out",
         "z": "18117fb3.11a3b",
         "name": "temperature_sim",
-        "topic": "HHZ/125/m5stick1/temperature",
+        "topic": "hhz/125/m5stick1/temperature",
         "qos": "",
         "retain": "",
         "broker": "15b3b035.3209b",
@@ -351,10 +257,10 @@
         "type": "ui_slider",
         "z": "18117fb3.11a3b",
         "name": "Temperature Sensor Simulation Slider",
-        "label": "",
+        "label": "Temperature",
         "tooltip": "",
-        "group": "b797115c.f567c",
-        "order": 4,
+        "group": "26536ce7.a0ede4",
+        "order": 7,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -364,7 +270,7 @@
         "max": "40",
         "step": 1,
         "x": 210,
-        "y": 180,
+        "y": 140,
         "wires": [
             [
                 "aed25d75.7d3ae"
@@ -376,12 +282,12 @@
         "type": "mqtt in",
         "z": "18117fb3.11a3b",
         "name": "motion",
-        "topic": "HHZ/121/m5stick2/motion",
+        "topic": "hhz/121/m5stick2/motion",
         "qos": "2",
         "datatype": "auto",
         "broker": "15b3b035.3209b",
         "x": 110,
-        "y": 760,
+        "y": 840,
         "wires": [
             [
                 "67c9b5dd.9050bc"
@@ -393,12 +299,12 @@
         "type": "mqtt out",
         "z": "18117fb3.11a3b",
         "name": "motion_sim",
-        "topic": "HHZ/121/m5stick2/motion",
+        "topic": "hhz/121/m5stick2/motion",
         "qos": "",
         "retain": "",
         "broker": "15b3b035.3209b",
         "x": 550,
-        "y": 600,
+        "y": 660,
         "wires": []
     },
     {
@@ -408,8 +314,8 @@
         "name": "motion_sensor_switch",
         "label": "Motion Sensor Simulation",
         "tooltip": "",
-        "group": "32acd36c.8d87bc",
-        "order": 1,
+        "group": "26536ce7.a0ede4",
+        "order": 2,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -425,7 +331,7 @@
         "officon": "",
         "offcolor": "",
         "x": 160,
-        "y": 600,
+        "y": 660,
         "wires": [
             [
                 "a939bb7c.086e98"
@@ -437,136 +343,68 @@
         "type": "mqtt in",
         "z": "18117fb3.11a3b",
         "name": "temperature",
-        "topic": "HHZ/121/m5stick1/temperature",
+        "topic": "hhz/121/m5stick1/temperature",
         "qos": "2",
         "datatype": "auto",
         "broker": "15b3b035.3209b",
         "x": 130,
-        "y": 820,
+        "y": 900,
         "wires": [
             [
-                "cedfb29f.f9b38",
                 "84ee3ac3.658698"
             ]
         ]
-    },
-    {
-        "id": "cedfb29f.f9b38",
-        "type": "ui_text",
-        "z": "18117fb3.11a3b",
-        "group": "32acd36c.8d87bc",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Temperatur",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "x": 370,
-        "y": 820,
-        "wires": []
     },
     {
         "id": "321bf97e.4627a6",
         "type": "mqtt in",
         "z": "18117fb3.11a3b",
         "name": "humidity",
-        "topic": "HHZ/121/m5stick1/humidity",
+        "topic": "hhz/121/m5stick1/humidity",
         "qos": "2",
         "datatype": "auto",
         "broker": "15b3b035.3209b",
         "x": 120,
-        "y": 880,
+        "y": 960,
         "wires": [
             [
-                "e8d81e5.84db4e",
-                "f14525b2.38b918"
+                "69908bb9.a24704"
             ]
         ]
-    },
-    {
-        "id": "e8d81e5.84db4e",
-        "type": "ui_text",
-        "z": "18117fb3.11a3b",
-        "group": "32acd36c.8d87bc",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Luftfeuchtigkeit",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "x": 380,
-        "y": 880,
-        "wires": []
     },
     {
         "id": "b82ef709.b8f4b8",
         "type": "mqtt in",
         "z": "18117fb3.11a3b",
         "name": "airquality",
-        "topic": "HHZ/121/m5stick1/airquality",
+        "topic": "hhz/121/m5stick1/airquality",
         "qos": "2",
         "datatype": "auto",
         "broker": "15b3b035.3209b",
         "x": 120,
-        "y": 940,
+        "y": 1020,
         "wires": [
             [
-                "98b6b25c.9288e",
                 "14de57e9.a337f8"
             ]
         ]
     },
     {
-        "id": "98b6b25c.9288e",
-        "type": "ui_text",
-        "z": "18117fb3.11a3b",
-        "group": "32acd36c.8d87bc",
-        "order": 9,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Luftqualität",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "x": 370,
-        "y": 940,
-        "wires": []
-    },
-    {
         "id": "7a7e82b6.53308c",
         "type": "mqtt in",
         "z": "18117fb3.11a3b",
-        "name": "brightness",
-        "topic": "HHZ/121/m5stick1/brightness",
+        "name": "luminosity",
+        "topic": "hhz/121/m5stick1/luminosity",
         "qos": "2",
         "datatype": "auto",
         "broker": "15b3b035.3209b",
         "x": 120,
-        "y": 1000,
+        "y": 1080,
         "wires": [
             [
-                "49653d58.119444",
                 "3c8f9954.922716"
             ]
         ]
-    },
-    {
-        "id": "49653d58.119444",
-        "type": "ui_text",
-        "z": "18117fb3.11a3b",
-        "group": "32acd36c.8d87bc",
-        "order": 11,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Helligkeit",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "x": 360,
-        "y": 1000,
-        "wires": []
     },
     {
         "id": "3c8f9954.922716",
@@ -574,11 +412,11 @@
         "z": "18117fb3.11a3b",
         "name": "g_bright1",
         "group": "32acd36c.8d87bc",
-        "order": 12,
+        "order": 6,
         "width": 0,
         "height": 0,
         "gtype": "wave",
-        "title": "",
+        "title": "Luminosity",
         "label": "lx",
         "format": "{{value}}",
         "min": 0,
@@ -591,7 +429,7 @@
         "seg1": "",
         "seg2": "",
         "x": 580,
-        "y": 1000,
+        "y": 1080,
         "wires": []
     },
     {
@@ -600,11 +438,11 @@
         "z": "18117fb3.11a3b",
         "name": "g_air1",
         "group": "32acd36c.8d87bc",
-        "order": 10,
+        "order": 5,
         "width": 0,
         "height": 0,
         "gtype": "gage",
-        "title": "",
+        "title": "Air Quality",
         "label": "ppm",
         "format": "{{value}}",
         "min": 0,
@@ -617,33 +455,7 @@
         "seg1": "",
         "seg2": "",
         "x": 570,
-        "y": 940,
-        "wires": []
-    },
-    {
-        "id": "f14525b2.38b918",
-        "type": "ui_gauge",
-        "z": "18117fb3.11a3b",
-        "name": "g_humid1",
-        "group": "32acd36c.8d87bc",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "",
-        "label": "%",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "100",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 580,
-        "y": 880,
+        "y": 1020,
         "wires": []
     },
     {
@@ -652,11 +464,11 @@
         "z": "18117fb3.11a3b",
         "name": "g_temp1",
         "group": "32acd36c.8d87bc",
-        "order": 6,
+        "order": 3,
         "width": 0,
         "height": 0,
         "gtype": "gage",
-        "title": "",
+        "title": "Temperature",
         "label": "°C",
         "format": "{{value}}",
         "min": "15",
@@ -669,46 +481,20 @@
         "seg1": "",
         "seg2": "",
         "x": 580,
-        "y": 820,
+        "y": 900,
         "wires": []
-    },
-    {
-        "id": "307f868c.78c68a",
-        "type": "ui_numeric",
-        "z": "18117fb3.11a3b",
-        "name": "",
-        "label": "Temperature Sensor Simulation",
-        "tooltip": "",
-        "group": "32acd36c.8d87bc",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "wrap": false,
-        "passthru": true,
-        "topic": "",
-        "format": "{{value}}",
-        "min": "15",
-        "max": "40",
-        "step": 1,
-        "x": 190,
-        "y": 660,
-        "wires": [
-            [
-                "dc328cd1.6aa32"
-            ]
-        ]
     },
     {
         "id": "dc328cd1.6aa32",
         "type": "mqtt out",
         "z": "18117fb3.11a3b",
         "name": "temperature_sim",
-        "topic": "HHZ/121/m5stick1/temperature",
+        "topic": "hhz/121/m5stick1/temperature",
         "qos": "",
         "retain": "",
         "broker": "15b3b035.3209b",
         "x": 570,
-        "y": 660,
+        "y": 720,
         "wires": []
     },
     {
@@ -716,10 +502,10 @@
         "type": "ui_slider",
         "z": "18117fb3.11a3b",
         "name": "Temperature Sensor Simulation Slider",
-        "label": "",
+        "label": "Temperature",
         "tooltip": "",
-        "group": "32acd36c.8d87bc",
-        "order": 4,
+        "group": "26536ce7.a0ede4",
+        "order": 3,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -729,7 +515,7 @@
         "max": "40",
         "step": 1,
         "x": 210,
-        "y": 700,
+        "y": 720,
         "wires": [
             [
                 "dc328cd1.6aa32"
@@ -742,15 +528,15 @@
         "z": "18117fb3.11a3b",
         "group": "b797115c.f567c",
         "name": "motion_detected",
-        "order": 2,
+        "order": 1,
         "width": 0,
         "height": 0,
-        "format": "<div layout=\"row\" layout-align=\"space-between\">\n  <p>Motion detected:</p>\n  <font color=\"{{(msg.payload === 'true') ? 'green' : 'red'}}\">\n    {{msg.payload}}\n  </font>\n</div>",
+        "format": "<div layout=\"row\" layout-align=\"space-between\">\n  <p>Motion detected</p>\n  <font color=\"{{(msg.payload === 'true') ? 'green' : 'red'}}\">\n    {{msg.payload}}\n  </font>\n</div>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "templateScope": "local",
         "x": 380,
-        "y": 240,
+        "y": 260,
         "wires": [
             []
         ]
@@ -761,15 +547,15 @@
         "z": "18117fb3.11a3b",
         "group": "32acd36c.8d87bc",
         "name": "motion_detected",
-        "order": 2,
+        "order": 1,
         "width": 0,
         "height": 0,
-        "format": "<div layout=\"row\" layout-align=\"space-between\">\n  <p>Motion detected:</p>  <font color=\"{{(msg.payload === 'true') ? 'green' : 'red'}}\">\n    {{msg.payload}}\n  </font>\n</div>",
+        "format": "<div layout=\"row\" layout-align=\"space-between\">\n  <p>Motion detected</p>\n  <font color=\"{{(msg.payload === 'true') ? 'green' : 'red'}}\">\n    {{msg.payload}}\n  </font>\n</div>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "templateScope": "local",
         "x": 380,
-        "y": 760,
+        "y": 840,
         "wires": [
             []
         ]
@@ -791,37 +577,422 @@
         "name": "Raum 121",
         "info": "",
         "x": 120,
-        "y": 560,
+        "y": 620,
         "wires": []
     },
     {
-        "id": "94427d23.67f89",
-        "type": "random",
+        "id": "c12eda1e.e3aaa8",
+        "type": "mqtt in",
         "z": "18117fb3.11a3b",
-        "name": "",
-        "low": "0",
-        "high": "65535",
-        "inte": "true",
-        "property": "payload",
-        "x": 260,
-        "y": 20,
+        "name": "Connected Clients",
+        "topic": "$SYS/broker/clients/connected",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "15b3b035.3209b",
+        "x": 150,
+        "y": 1240,
         "wires": [
             [
-                "e50cda0.bda8f28"
+                "da091d3d.56e2e"
             ]
         ]
     },
     {
-        "id": "e50cda0.bda8f28",
+        "id": "52e70224.23c20c",
+        "type": "comment",
+        "z": "18117fb3.11a3b",
+        "name": "Broker Status",
+        "info": "",
+        "x": 130,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "da091d3d.56e2e",
+        "type": "ui_text",
+        "z": "18117fb3.11a3b",
+        "group": "b670899b.14e118",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Connected Clients",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 390,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "6fc21e09.c20a6",
+        "type": "mqtt in",
+        "z": "18117fb3.11a3b",
+        "name": "Disconnected Clients",
+        "topic": "$SYS/broker/clients/disconnected",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "15b3b035.3209b",
+        "x": 160,
+        "y": 1300,
+        "wires": [
+            [
+                "2688925.8e2336e"
+            ]
+        ]
+    },
+    {
+        "id": "2688925.8e2336e",
+        "type": "ui_text",
+        "z": "18117fb3.11a3b",
+        "group": "b670899b.14e118",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Disconnected Clients",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 400,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "e49186a5.3826c8",
+        "type": "mqtt in",
+        "z": "18117fb3.11a3b",
+        "name": "Subscriptions",
+        "topic": "$SYS/broker/subscriptions/count",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "15b3b035.3209b",
+        "x": 130,
+        "y": 1420,
+        "wires": [
+            [
+                "c2422079.503cb"
+            ]
+        ]
+    },
+    {
+        "id": "c2422079.503cb",
+        "type": "ui_text",
+        "z": "18117fb3.11a3b",
+        "group": "b670899b.14e118",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Subscriptions",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 380,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "ebbef39a.eecd4",
+        "type": "mqtt in",
+        "z": "18117fb3.11a3b",
+        "name": "Uptime",
+        "topic": "$SYS/broker/uptime",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "15b3b035.3209b",
+        "x": 110,
+        "y": 1480,
+        "wires": [
+            [
+                "d3c929f4.981478"
+            ]
+        ]
+    },
+    {
+        "id": "d3c929f4.981478",
+        "type": "ui_text",
+        "z": "18117fb3.11a3b",
+        "group": "b670899b.14e118",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Uptime",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 360,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "c5bc93fb.d0eea",
+        "type": "mqtt in",
+        "z": "18117fb3.11a3b",
+        "name": "Maximum Clients",
+        "topic": "$SYS/broker/clients/maximum",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "15b3b035.3209b",
+        "x": 140,
+        "y": 1360,
+        "wires": [
+            [
+                "863f5921.0f90e8"
+            ]
+        ]
+    },
+    {
+        "id": "863f5921.0f90e8",
+        "type": "ui_text",
+        "z": "18117fb3.11a3b",
+        "group": "b670899b.14e118",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Maximum Clients",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 390,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "1313ff64.99bc01",
+        "type": "inject",
+        "z": "18117fb3.11a3b",
+        "name": "",
+        "topic": "",
+        "payload": "125",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 290,
+        "y": 20,
+        "wires": [
+            [
+                "f03cceca.0ea0a"
+            ]
+        ]
+    },
+    {
+        "id": "f03cceca.0ea0a",
+        "type": "ui_text",
+        "z": "18117fb3.11a3b",
+        "group": "26536ce7.a0ede4",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "125",
+        "label": "Raum",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 530,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "64026998.aeb488",
+        "type": "inject",
+        "z": "18117fb3.11a3b",
+        "name": "",
+        "topic": "",
+        "payload": "121",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 290,
+        "y": 620,
+        "wires": [
+            [
+                "231b1177.874bbe"
+            ]
+        ]
+    },
+    {
+        "id": "231b1177.874bbe",
+        "type": "ui_text",
+        "z": "18117fb3.11a3b",
+        "group": "26536ce7.a0ede4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "121",
+        "label": "Raum",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 530,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "4595be01.3807a",
         "type": "mqtt out",
         "z": "18117fb3.11a3b",
-        "name": "brightness_sim",
-        "topic": "HHZ/125/m5stick1/brightness",
+        "name": "humidity_sim",
+        "topic": "hhz/121/m5stick1/humidity",
         "qos": "",
         "retain": "",
         "broker": "15b3b035.3209b",
-        "x": 560,
-        "y": 20,
+        "x": 550,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "3dc8f7d3.1b9ca8",
+        "type": "ui_slider",
+        "z": "18117fb3.11a3b",
+        "name": "Humidity Sensor Simulation Slider",
+        "label": "Humidity",
+        "tooltip": "",
+        "group": "26536ce7.a0ede4",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "",
+        "min": "0",
+        "max": "100",
+        "step": 1,
+        "x": 200,
+        "y": 780,
+        "wires": [
+            [
+                "4595be01.3807a"
+            ]
+        ]
+    },
+    {
+        "id": "326b8b7e.62adf4",
+        "type": "ui_slider",
+        "z": "18117fb3.11a3b",
+        "name": "Humidity Sensor Simulation Slider",
+        "label": "Humidity",
+        "tooltip": "",
+        "group": "26536ce7.a0ede4",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "",
+        "min": "0",
+        "max": "1100",
+        "step": 1,
+        "x": 200,
+        "y": 200,
+        "wires": [
+            [
+                "4a8d60a6.12159"
+            ]
+        ]
+    },
+    {
+        "id": "4a8d60a6.12159",
+        "type": "mqtt out",
+        "z": "18117fb3.11a3b",
+        "name": "humidity_sim",
+        "topic": "hhz/125/m5stick1/humidity",
+        "qos": "",
+        "retain": "",
+        "broker": "15b3b035.3209b",
+        "x": 550,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "1023dd42.370a13",
+        "type": "mqtt in",
+        "z": "18117fb3.11a3b",
+        "name": "pressure",
+        "topic": "hhz/125/m5stick1/pressure",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "15b3b035.3209b",
+        "x": 120,
+        "y": 560,
+        "wires": [
+            [
+                "e0df5ad6.762088"
+            ]
+        ]
+    },
+    {
+        "id": "40fb77f.9d95688",
+        "type": "mqtt in",
+        "z": "18117fb3.11a3b",
+        "name": "pressure",
+        "topic": "hhz/121/m5stick1/pressure",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "15b3b035.3209b",
+        "x": 120,
+        "y": 1140,
+        "wires": [
+            [
+                "b7445ebd.ccc87"
+            ]
+        ]
+    },
+    {
+        "id": "b7445ebd.ccc87",
+        "type": "ui_text",
+        "z": "18117fb3.11a3b",
+        "group": "32acd36c.8d87bc",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "g_press1",
+        "label": "Barometric Pressure",
+        "format": "{{msg.payload}} hPa",
+        "layout": "row-spread",
+        "x": 580,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "e0df5ad6.762088",
+        "type": "ui_text",
+        "z": "18117fb3.11a3b",
+        "group": "b797115c.f567c",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "g_press1",
+        "label": "Barometric Pressure",
+        "format": "{{msg.payload}} hPa",
+        "layout": "row-spread",
+        "x": 580,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "69908bb9.a24704",
+        "type": "ui_gauge",
+        "z": "18117fb3.11a3b",
+        "name": "g_humid1",
+        "group": "32acd36c.8d87bc",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#ca3838",
+            "#00df00",
+            "#0000ff"
+        ],
+        "seg1": "40",
+        "seg2": "60",
+        "x": 580,
+        "y": 960,
         "wires": []
     },
     {
@@ -847,6 +1018,16 @@
         "willPayload": ""
     },
     {
+        "id": "26536ce7.a0ede4",
+        "type": "ui_group",
+        "z": "",
+        "name": "Simulation",
+        "tab": "f894a681.0c5aa8",
+        "disp": true,
+        "width": "6",
+        "collapse": true
+    },
+    {
         "id": "b797115c.f567c",
         "type": "ui_group",
         "z": "",
@@ -864,6 +1045,16 @@
         "name": "Raum 121",
         "tab": "f894a681.0c5aa8",
         "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": true
+    },
+    {
+        "id": "b670899b.14e118",
+        "type": "ui_group",
+        "z": "",
+        "name": "Broker Status",
+        "tab": "f894a681.0c5aa8",
         "disp": true,
         "width": "6",
         "collapse": true
