@@ -1000,7 +1000,7 @@
         "type": "mqtt-broker",
         "z": "",
         "name": "hhzpi-broker",
-        "broker": "localhost",
+        "broker": "10.0.103.50",
         "port": "1883",
         "clientid": "",
         "usetls": false,
