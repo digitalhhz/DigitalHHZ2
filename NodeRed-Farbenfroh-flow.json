@@ -1,0 +1,197 @@
+[
+    {
+        "id": "38ecb1a4.f71196",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "792787c1.333c68",
+        "type": "mqtt in",
+        "z": "38ecb1a4.f71196",
+        "name": "Subscribe",
+        "topic": "hhz/125/m5stick1/temperature",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "647c11de.eaa7f8",
+        "x": 160,
+        "y": 420,
+        "wires": [
+            [
+                "86a3debe.06db3",
+                "cb9ea0a3.305cc"
+            ]
+        ]
+    },
+    {
+        "id": "86a3debe.06db3",
+        "type": "debug",
+        "z": "38ecb1a4.f71196",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 480,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "cb9ea0a3.305cc",
+        "type": "switch",
+        "z": "38ecb1a4.f71196",
+        "name": "CheckTemp",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "20",
+                "vt": "str"
+            },
+            {
+                "t": "gt",
+                "v": "26",
+                "vt": "str"
+            },
+            {
+                "t": "btwn",
+                "v": "20",
+                "vt": "num",
+                "v2": "26",
+                "v2t": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 470,
+        "y": 500,
+        "wires": [
+            [
+                "aa798dff.8cc8b"
+            ],
+            [
+                "6af5044f.77aa24"
+            ],
+            [
+                "15d5b98.acec847"
+            ]
+        ]
+    },
+    {
+        "id": "ab40d736.45743",
+        "type": "mqtt out",
+        "z": "38ecb1a4.f71196",
+        "name": "Light Red",
+        "topic": "cmnd/hhz/125/tasmotaTemp/STATUS11/StatusSTS/HSBColor",
+        "qos": "",
+        "retain": "",
+        "broker": "647c11de.eaa7f8",
+        "x": 960,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "9ff47c51.986cc8",
+        "type": "mqtt out",
+        "z": "38ecb1a4.f71196",
+        "name": "Light Blue",
+        "topic": "cmnd/hhz/125/tasmotaTemp/STATUS11/StatusSTS/HSBColor",
+        "qos": "0",
+        "retain": "",
+        "broker": "647c11de.eaa7f8",
+        "x": 960,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "6af5044f.77aa24",
+        "type": "function",
+        "z": "38ecb1a4.f71196",
+        "name": "Send Red HSB Code",
+        "func": "msg.payload = 0,100,100\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 740,
+        "y": 500,
+        "wires": [
+            [
+                "ab40d736.45743"
+            ]
+        ]
+    },
+    {
+        "id": "aa798dff.8cc8b",
+        "type": "function",
+        "z": "38ecb1a4.f71196",
+        "name": "Send Blue HSB Code",
+        "func": "msg.payload = 180,100,100\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 740,
+        "y": 440,
+        "wires": [
+            [
+                "9ff47c51.986cc8"
+            ]
+        ]
+    },
+    {
+        "id": "cc25e8ef.f856",
+        "type": "mqtt out",
+        "z": "38ecb1a4.f71196",
+        "name": "Light Green",
+        "topic": "cmnd/hhz/125/tasmotaTemp/STATUS11/StatusSTS/HSBColor",
+        "qos": "",
+        "retain": "",
+        "broker": "647c11de.eaa7f8",
+        "x": 970,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "15d5b98.acec847",
+        "type": "function",
+        "z": "38ecb1a4.f71196",
+        "name": "Send Green HSB Code",
+        "func": "msg.payload = \"150,100,100\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 750,
+        "y": 560,
+        "wires": [
+            [
+                "cc25e8ef.f856"
+            ]
+        ]
+    },
+    {
+        "id": "647c11de.eaa7f8",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "Test",
+        "broker": "10.0.103.50",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": ""
+    }
+]
