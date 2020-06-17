@@ -1,0 +1,10 @@
+<!-- Put this file named mosquitto.service in /etc/avahi/services/ -->
+<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+<service-group>
+ <name replace-wildcards="yes">Digital HHZ Dashboard on http://%h:1880/ui</name>
+  <service>
+   <type>_http._tcp</type>
+   <port>1880</port>
+   <txt-record>info=Node-RED based Dashboard displaying all available sensor values. </txt-record>
+  </service>
+</service-group>
