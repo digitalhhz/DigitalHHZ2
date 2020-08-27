@@ -1,35 +1,35 @@
 [
     {
-        "id": "8ba8bd3.aae814",
+        "id": "c5672c10.613d7",
         "type": "mqtt in",
-        "z": "5bdccd94.6c8464",
+        "z": "2fd59037.4bd8a",
         "name": "",
         "topic": "hhz/125/#",
         "qos": "2",
         "datatype": "auto",
-        "broker": "ce9cf49b.d51ba8",
-        "x": 210,
-        "y": 280,
+        "broker": "13da3b7e.e786b5",
+        "x": 120,
+        "y": 300,
         "wires": [
             [
-                "eb3aabca.bec4b8"
+                "4a0da596.40d7fc"
             ]
         ]
     },
     {
-        "id": "5751e15.8f7f72",
+        "id": "45afbb26.dfde84",
         "type": "comment",
-        "z": "5bdccd94.6c8464",
+        "z": "2fd59037.4bd8a",
         "name": "Monitoring 125",
         "info": "",
-        "x": 220,
-        "y": 220,
+        "x": 130,
+        "y": 240,
         "wires": []
     },
     {
-        "id": "eb3aabca.bec4b8",
+        "id": "4a0da596.40d7fc",
         "type": "switch",
-        "z": "5bdccd94.6c8464",
+        "z": "2fd59037.4bd8a",
         "name": "topic routing",
         "property": "topic",
         "propertyType": "msg",
@@ -63,22 +63,30 @@
         "checkall": "true",
         "repair": false,
         "outputs": 5,
-        "x": 430,
-        "y": 280,
+        "x": 340,
+        "y": 300,
         "wires": [
             [
-                "32f592dd.8ff2ae"
+                "13b68439.15840c"
             ],
-            [],
-            [],
-            [],
-            []
+            [
+                "45566a69.a70c54"
+            ],
+            [
+                "1917e10f.1dd1ff"
+            ],
+            [
+                "15f38287.43e4ed"
+            ],
+            [
+                "935aeabf.a4c308"
+            ]
         ]
     },
     {
-        "id": "32f592dd.8ff2ae",
+        "id": "13b68439.15840c",
         "type": "trigger",
-        "z": "5bdccd94.6c8464",
+        "z": "2fd59037.4bd8a",
         "name": "",
         "op1": "true",
         "op2": "false",
@@ -92,65 +100,270 @@
         "topic": "topic",
         "outputs": 1,
         "x": 630,
-        "y": 180,
+        "y": 200,
         "wires": [
             [
-                "5f2d662a.f4e648",
-                "522dd087.873b2"
+                "65b5341d.2af1dc"
             ]
         ]
     },
     {
-        "id": "5f2d662a.f4e648",
-        "type": "debug",
-        "z": "5bdccd94.6c8464",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 830,
-        "y": 60,
-        "wires": []
+        "id": "65b5341d.2af1dc",
+        "type": "ui_led",
+        "z": "2fd59037.4bd8a",
+        "group": "d354b133.4157f",
+        "order": 2,
+        "width": 4,
+        "height": 1,
+        "label": "M5Stick 1",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "red",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "OpenDNS 4.2.2.2",
+        "x": 775,
+        "y": 200,
+        "wires": [],
+        "l": false,
+        "info": "HELLO"
     },
     {
-        "id": "522dd087.873b2",
-        "type": "ui_switch",
-        "z": "5bdccd94.6c8464",
+        "id": "45566a69.a70c54",
+        "type": "trigger",
+        "z": "2fd59037.4bd8a",
         "name": "",
-        "label": "switch",
-        "tooltip": "",
-        "group": "",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 840,
-        "y": 180,
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "10",
+        "extend": true,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 630,
+        "y": 260,
         "wires": [
-            []
+            [
+                "13b2f981.0649c6"
+            ]
         ]
     },
     {
-        "id": "ce9cf49b.d51ba8",
+        "id": "13b2f981.0649c6",
+        "type": "ui_led",
+        "z": "2fd59037.4bd8a",
+        "group": "d354b133.4157f",
+        "order": 2,
+        "width": 4,
+        "height": 1,
+        "label": "M5Stick 2",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "red",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "OpenDNS 4.2.2.2",
+        "x": 775,
+        "y": 260,
+        "wires": [],
+        "l": false,
+        "info": "HELLO"
+    },
+    {
+        "id": "1917e10f.1dd1ff",
+        "type": "trigger",
+        "z": "2fd59037.4bd8a",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "10",
+        "extend": true,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 630,
+        "y": 300,
+        "wires": [
+            [
+                "5478de66.4d38b"
+            ]
+        ]
+    },
+    {
+        "id": "5478de66.4d38b",
+        "type": "ui_led",
+        "z": "2fd59037.4bd8a",
+        "group": "d354b133.4157f",
+        "order": 2,
+        "width": 4,
+        "height": 1,
+        "label": "M5Stick 3",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "red",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "OpenDNS 4.2.2.2",
+        "x": 775,
+        "y": 300,
+        "wires": [],
+        "l": false,
+        "info": "HELLO"
+    },
+    {
+        "id": "15f38287.43e4ed",
+        "type": "trigger",
+        "z": "2fd59037.4bd8a",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "10",
+        "extend": true,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 630,
+        "y": 340,
+        "wires": [
+            [
+                "c7479144.3f625"
+            ]
+        ]
+    },
+    {
+        "id": "c7479144.3f625",
+        "type": "ui_led",
+        "z": "2fd59037.4bd8a",
+        "group": "d354b133.4157f",
+        "order": 2,
+        "width": 4,
+        "height": 1,
+        "label": "M5Stick 4",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "red",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "OpenDNS 4.2.2.2",
+        "x": 775,
+        "y": 340,
+        "wires": [],
+        "l": false,
+        "info": "HELLO"
+    },
+    {
+        "id": "935aeabf.a4c308",
+        "type": "trigger",
+        "z": "2fd59037.4bd8a",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "10",
+        "extend": true,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 630,
+        "y": 400,
+        "wires": [
+            [
+                "3be81284.195eae"
+            ]
+        ]
+    },
+    {
+        "id": "3be81284.195eae",
+        "type": "ui_led",
+        "z": "2fd59037.4bd8a",
+        "group": "d354b133.4157f",
+        "order": 2,
+        "width": 4,
+        "height": 1,
+        "label": "M5Stick 5",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "green",
+                "value": "true",
+                "valueType": "bool"
+            },
+            {
+                "color": "red",
+                "value": "false",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "name": "OpenDNS 4.2.2.2",
+        "x": 775,
+        "y": 400,
+        "wires": [],
+        "l": false,
+        "info": "HELLO"
+    },
+    {
+        "id": "13da3b7e.e786b5",
         "type": "mqtt-broker",
         "z": "",
         "name": "Hive / Public Broker",
-        "broker": "broker.hivemq.com",
+        "broker": "10.0.103.50",
         "port": "1883",
         "clientid": "",
         "usetls": false,
@@ -166,5 +379,26 @@
         "willTopic": "",
         "willQos": "0",
         "willPayload": ""
+    },
+    {
+        "id": "d354b133.4157f",
+        "type": "ui_group",
+        "z": "",
+        "name": "M5Sticks",
+        "tab": "3e705b20.963f44",
+        "order": 5,
+        "disp": true,
+        "width": "4",
+        "collapse": true
+    },
+    {
+        "id": "3e705b20.963f44",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Monitoring",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
     }
 ]
