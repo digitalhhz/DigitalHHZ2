@@ -1,0 +1,170 @@
+[
+    {
+        "id": "8ba8bd3.aae814",
+        "type": "mqtt in",
+        "z": "5bdccd94.6c8464",
+        "name": "",
+        "topic": "hhz/125/#",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "ce9cf49b.d51ba8",
+        "x": 210,
+        "y": 280,
+        "wires": [
+            [
+                "eb3aabca.bec4b8"
+            ]
+        ]
+    },
+    {
+        "id": "5751e15.8f7f72",
+        "type": "comment",
+        "z": "5bdccd94.6c8464",
+        "name": "Monitoring 125",
+        "info": "",
+        "x": 220,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "eb3aabca.bec4b8",
+        "type": "switch",
+        "z": "5bdccd94.6c8464",
+        "name": "topic routing",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "m5stick1",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "m5stick2",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "m5stick3",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "m5stick4",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "m5stick5",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 5,
+        "x": 430,
+        "y": 280,
+        "wires": [
+            [
+                "32f592dd.8ff2ae"
+            ],
+            [],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "32f592dd.8ff2ae",
+        "type": "trigger",
+        "z": "5bdccd94.6c8464",
+        "name": "",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
+        "duration": "10",
+        "extend": true,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 630,
+        "y": 180,
+        "wires": [
+            [
+                "5f2d662a.f4e648",
+                "522dd087.873b2"
+            ]
+        ]
+    },
+    {
+        "id": "5f2d662a.f4e648",
+        "type": "debug",
+        "z": "5bdccd94.6c8464",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "522dd087.873b2",
+        "type": "ui_switch",
+        "z": "5bdccd94.6c8464",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 840,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ce9cf49b.d51ba8",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "Hive / Public Broker",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    }
+]
