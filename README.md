@@ -16,57 +16,16 @@ Implementiert wurde ein auf der Low-Code-Platform [Node-RED](https://nodered.org
 
 In der Dokumentation werden die einzelnen Bestandteile (Software- und Hardwarekomponenten), sowie weitere Technologien und ihre Installation und Konfiguration beschrieben.
 
-1. Digital HHZ 2.0
-1. Trello Dokumentation
-1. Architektur
-1. Zugang zum Digital HHZ Netzwerk
-2. Verwendete Softwarekomponenten
-2. MQTT
-2. NodeRed
-2. Homie Konvention
-2. InfluxDB
-2. Chronograf
-2. Telegraf
-2. Einführung in Service Discovery
-2. ThingsBoard
-3. Verwendete Hardwarekomponenten
-3. Raspberry Pi
-3. M5Sticks
-3. Tasmota Lampe
-4. Einrichtung Mosquitto Broker
-4. Installation
-4. Topics
-4. Bridging
-5. HHZ Dashboard
-5. Digital HHZ
-5. Monitoring & Service Discovery
-5. Service Discovery mit Avahi
-5. Simulation
-5. InfluxDB Chronograf
-5. ThingsBoard
-5. ThingsBoard Devices
-5. ThingsBoard Appliances
-6. Device Management
-6. Unterscheidung Geräte und Objekte
-6. Anlegen eines Gerätes
-6. Zuordnung physisches Gerät<-->Datenobjekt
-6. Dashboard
-6. ThingsBoard Dokumentation
-7. Datenmanagement
-7. ER-Modell
-7. Wie sind die Daten zu verstehen?
-7. Wie sind die Daten zu verarbeiten?
-7. InfluxDB
-7. Telegraf
-7. Chronograf
-7. Backup und Dropbox Uploader
-7. DigitalHHZ2MonthlyUploader Dropbox developer App
-7. Daten-Replay
-8. Fehlermanagement im Digital HHZ
-9. Aufsetzen einer neuen Appliance
-9. Aufsetzen des Raspberry Pis
-9. Node-RED Installation
-9. Erklärung des MQTT Datenflusses
-9. Broker Konfiguration
-9. Erklärung der Topic Struktur
-9. Weitere Schritte
+Die Projektplanung und das Anforderungs- und Aufgabenmanagement wurde über Trello durchgeführt. Unser Trello-Board ist unter folgender URL erreichbar:
+https://trello.com/b/O8KbgCGB/digital-hhz-20
+
+Um einen schnellen Überblick über unsere Architektur zu geben, ist hier das Kapitel Architektur unsere Projektdokumentation abgedruckt:
+
+
+ 
+Abbildung 1 Digital HHZ Architekturbild
+Abbildung 1 zeigt ein Gesamtbild der verwendeten Technologien sowie die Interaktion der Komponenten untereinander. Die linke Seite stellt die aktuelle Implementierung im Raum 125 dar. Hier sind die Sensoren (M5Sticks) und Aktoren (Tasmota-Lampe) in-stalliert. Die Sensoren und Aktoren kommunizieren über MQTT mit dem lokalen MQTT-Broker, der auf Mosquitto basiert und welcher im Raum 121 auf einem physi-schen Server (Raspberry Pi) installiert wurde. Die Daten der Sensoren und Aktoren werden auf weitere Mosquitto-Broker gespiegelt (Bridging). Ein zweiter Mosquitto-Broker wird im SmartLab auf einer virtuellen Maschine (Broker-VM) gehosted. Für den Zugang auf die virtuelle Maschine wird auf das folgende Kapitel (Zugang zum Digital-HHZ-Netzwerk) verwiesen. 
+Die Digital-HHZ-Webseite (externes Dashboard), welche von außerhalb des Digital-HHZ-Netzwerks (extern) über digital.hhz.de zu erreichen ist, wird auf einem Strato-Server gehosted. Auf dieser Seite werden die aktuell gemessenen Sensorwerte pro Raum aufgelistet und das Projekt kurz vorgestellt. Die Digital-HHZ-Webseite sowie das interne Dashboard wurden mit der Low-Code-Plattform Node-RED entwickelt. Das interne Dashboard wird auf der Nodered-VM gehosted. Das interne Dashboard kann nur aufgerufen werden, wenn man im Digital-HHZ-Netzwerk eingeloggt ist.
+Auf den Sensoren und Aktoren werden QR-Codes angebracht. Mithilfe dieser können Gerätedaten, sowie deren Zugehörigkeit nachvollzogen werden, indem ein QR-Code-Scanner, bspw. Smartphone, das im Digital-HHZ-Netzwerk eingeloggt ist, diesen QR-Code scannt. Man wird daraufhin automatisch auf eine gerätespezifische Seite inner-halb des internen Dashboards weitergeleitet und erhält alle notwendigen Informationen über das Gerät selbst und dessen Zugehörigkeit. Die Daten hierfür stammen aus der Device-Management-Software ThingsBoard, die ebenfalls auf der Nodered-VM instal-liert wurde. Die Daten werden vom internen Dashboard über die ThingsBoard-API ab-gerufen.
+Auf der DB-VM wird der Backup-Service gehosted, welcher aus dem Zeitreihen-Datenbank-Management-System InfluxDB, sowie den weiteren Komponenten des TICK-Stacks (Telegraf, Kapacitor und Chronograf) besteht. Dieser Dienst holt sich über Telegraf von der Broker-VM alle Werte und speichert sie in einer Datenbank ab. Zu jedem Monatsanfang wird ein Backup der Datenbank erstellt und automatisch an Dropbox hochgeladen. Backups können jedoch auch manuell erstellt werden. Über Chronograf wurden Dashboards für die Analyse und den csv-Export der Daten erstellt und können intuitiv über das Web-Interface von Chronograf erweitert werden.
+Jede VM sowie jeder Raspberry Pi (ob Appliance oder Broker-Pi) muss seine angebo-tenen Dienste über mDNS/DNS-SD (z.B. Avahi) veröffentlichen. Avahi wird benötigt, um die Geräte/Services im Digital-HHZ zugreifbar zu machen, ohne dass die IP-Adresse bekannt ist.
