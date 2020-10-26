@@ -19,7 +19,13 @@ In der Dokumentation werden die einzelnen Bestandteile (Software- und Hardwareko
 Die Projektplanung und das Anforderungs- und Aufgabenmanagement wurde über Trello durchgeführt. Unser Trello-Board ist unter folgender URL erreichbar:
 https://trello.com/b/O8KbgCGB/digital-hhz-20
 
-Um einen schnellen Überblick über unsere Architektur zu geben, ist hier eine Zusammenfassung des Kapitels Architektur unsere Projektdokumentation:
+Da für die Versionsverwaltung der Node-RED-Dashboard-Flows die Projektfunktion von Node-RED verwendet wird, wurden zwei separate, private Repositories angelegt, die mit diesem Account geforkt wurden:
+
+internes Dashboard: https://github.com/digitalhhz/hhz-dashboard-internal
+
+externes Dashboard (digital.hhz.de): https://github.com/digitalhhz/hhz-dashboard-external
+
+Um einen schnellen Überblick über unsere Architektur zu geben, ist hier eine Zusammenfassung des Kapitels Architektur unserer Projektdokumentation:
 
 ![Abbildung 1 Digital HHZ Architekturbild](/Architekturbild.png)
 
