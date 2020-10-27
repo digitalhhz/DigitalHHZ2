@@ -21,8 +21,8 @@ https://trello.com/b/O8KbgCGB/digital-hhz-20
 
 Da für die **Versionsverwaltung der Node-RED-Dashboard-Flows** die Projektfunktion von Node-RED verwendet wird, wurden zwei separate, private Repositories angelegt, die mit diesem Account geforkt wurden:
 
-internes Dashboard: https://github.com/digitalhhz/hhz-dashboard-internal
-externes Dashboard (digital.hhz.de): https://github.com/digitalhhz/hhz-dashboard-external
+* internes Dashboard: https://github.com/digitalhhz/hhz-dashboard-internal
+* externes Dashboard (digital.hhz.de): https://github.com/digitalhhz/hhz-dashboard-external
 
 Um einen schnellen **Überblick über unsere Architektur** zu geben, ist hier eine Zusammenfassung des Kapitels Architektur unserer [**Projektdokumentation**](/Gesamtdokumentation_DigitalHHZ2.0.pdf):
 
