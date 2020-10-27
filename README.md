@@ -14,18 +14,17 @@ Implementiert wurde ein auf der Low-Code-Platform [Node-RED](https://nodered.org
 * die teilautomatisierte Fehlererkennung und 
 * das Testen von Appliances. 
 
-In der Dokumentation werden die einzelnen Bestandteile (Software- und Hardwarekomponenten), sowie weitere Technologien und ihre Installation und Konfiguration beschrieben.
+In der [**Projektdokumentation**](/Gesamtdokumentation_DigitalHHZ2.0.pdf) werden die einzelnen Bestandteile (Software- und Hardwarekomponenten), sowie weitere Technologien und ihre Installation und Konfiguration beschrieben.
 
-Die Projektplanung und das Anforderungs- und Aufgabenmanagement wurde über Trello durchgeführt. Unser Trello-Board ist unter folgender URL erreichbar:
+Die **Projektplanung und das Anforderungs- und Aufgabenmanagement** wurde über Trello durchgeführt. Unser Trello-Board ist unter folgender URL erreichbar:
 https://trello.com/b/O8KbgCGB/digital-hhz-20
 
-Da für die Versionsverwaltung der Node-RED-Dashboard-Flows die Projektfunktion von Node-RED verwendet wird, wurden zwei separate, private Repositories angelegt, die mit diesem Account geforkt wurden:
+Da für die **Versionsverwaltung der Node-RED-Dashboard-Flows** die Projektfunktion von Node-RED verwendet wird, wurden zwei separate, private Repositories angelegt, die mit diesem Account geforkt wurden:
 
 internes Dashboard: https://github.com/digitalhhz/hhz-dashboard-internal
-
 externes Dashboard (digital.hhz.de): https://github.com/digitalhhz/hhz-dashboard-external
 
-Um einen schnellen Überblick über unsere Architektur zu geben, ist hier eine Zusammenfassung des Kapitels Architektur unserer Projektdokumentation:
+Um einen schnellen **Überblick über unsere Architektur** zu geben, ist hier eine Zusammenfassung des Kapitels Architektur unserer [**Projektdokumentation**](/Gesamtdokumentation_DigitalHHZ2.0.pdf):
 
 ![Abbildung 1 Digital HHZ Architekturbild](/Architekturbild.png)
 
