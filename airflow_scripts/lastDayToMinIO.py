@@ -7,7 +7,7 @@ load_dotenv()
 topic = 'DHHZ/024/RearArea/Motion3'
 lastDays = 1
 
-query = """"SELECT temperature AS temperature, illuminance AS illuminance FROM digitalhhz2.autogen.mqtt_consumer WHERE  time <= now() and time >= now() - """ + str(lastDays) + """d  AND topic='DHHZ/024/EntryArea/Motion1'" """
+query = """"SELECT temperature, illuminance, occupancy FROM digitalhhz2.autogen.mqtt_consumer WHERE occupancy = 1 OR occupancy = 0 AND time <= now() and time >= now() - """ + str(lastDays) + """d  AND topic='DHHZ/024/EntryArea/Motion1'" """
 cmd = "influx -database 'digitalhhz2' -execute " + query + " -format csv > influxData.csv"
 
 print('running: ' + cmd)
