@@ -63,17 +63,13 @@ with mlflow.start_run():
 with open("automl_ki_lab_occupancy.pkl", 'wb') as f:
     pickle.dump(model, f)
 # save model and leaderboard on minio
-minio_client = Minio("10.0.105.60:9000",
-                    access_key="mlflow_user",
-                    secret_key="mlflow_user",
-                    secure=False)
-found =minio_client.bucket_exists("mlflowbucket")
+found =client.bucket_exists("mlflowbucket")
 if not found:
-    minio_client.make_bucket("mlflowbucket")
+    client.make_bucket("mlflowbucket")
 else:
     print("bucket already exists!")
-minio_client.fput_object("mlflowbucket","automl_ki_lab_occupancy.pkl","./automl_ki_lab_occupancy.pkl")
-minio_client.fput_object("mlflowbucket","leaderboard_ki_lab_occ.csv","./AutoML_1/leaderboard.csv")
+client.fput_object("mlflowbucket","automl_ki_lab_occupancy.pkl","./automl_ki_lab_occupancy.pkl")
+client.fput_object("mlflowbucket","leaderboard_ki_lab_occ.csv","./AutoML_1/leaderboard.csv")
 # delete results
 shutil.rmtree("./AutoML_1", ignore_errors=True)
 
