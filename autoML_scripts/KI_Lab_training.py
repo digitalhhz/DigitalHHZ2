@@ -63,9 +63,10 @@ if not found:
     client.make_bucket("mlflowbucket")
 else:
     print("bucket already exists!")
-
+shutil.make_archive("AutoML_1", 'zip', "./AutoML_1")
 result_model = client.fput_object("mlflowbucket","automl_ki_lab_occupancy.pkl","./automl_ki_lab_occupancy.pkl")
 result_leaderboard = client.fput_object("mlflowbucket","leaderboard_ki_lab_occ.csv","./AutoML_1/leaderboard.csv")
+result_AutoML = client.fput_object("mlflowbucket","AutoML_1.zip","./AutoML_1.zip")
 
 print(
     f"created {result_model.object_name} object; etag: {result_model.etag}, version-id: {result_model.version_id}"
@@ -75,4 +76,5 @@ print(
     )
 # delete results
 shutil.rmtree("./AutoML_1", ignore_errors=True)
+shutil.rmtree("./AutoML_1.zip", ignore_errors=True)
 
