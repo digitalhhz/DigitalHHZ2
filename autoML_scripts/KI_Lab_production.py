@@ -45,8 +45,7 @@ pred = model.predict(X)
 print(pred)
 # delete results
 shutil.rmtree("./AutoML_1", ignore_errors=True)
-shutil.rmtree("./AutoML_1.zip", ignore_errors=True)
-
+os.remove("./AutoML_1.zip")
 
 
 
