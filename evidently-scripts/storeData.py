@@ -24,20 +24,15 @@ if not found:
     client.make_bucket("evidently")
 else:
     print("Bucket 'evidently' already exists")
+    
+cmd = client.get_object("evidently","influxQueryLast30Days.sql")
 
-def writeLastDaysToMinIO(lastDays):
-    end = datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ')
-    start = (datetime.now() - timedelta(days=lastDays)).strftime('%Y-%m-%dT%H:%M:%SZ')
+print('running: ' + cmd)
+subprocess.call(cmd, shell=True)
 
-    query = """"SELECT temperature, illuminance, occupancy FROM digitalhhz2.autogen.mqtt_consumer WHERE occupancy = 1 OR occupancy = 0 AND time <= '""" + str(end) + """' and time >= '""" + str(start) + """'  AND topic='DHHZ/024/EntryArea/Motion1'" """
-    cmd = "influx -database 'digitalhhz2' -execute " + query + " -format csv > influxData.csv"
-
-    print('running: ' + cmd)
-    subprocess.call(cmd, shell=True)
-
-    f = open( "influxQueryLast" + str(lastDays) + "Days.sql", 'w' )
-    f.write( cmd + '\n' )
-    f.close()
+f = open( "influxQueryLast" + str(lastDays) + "Days.sql", 'w' )
+f.write( cmd + '\n' )
+f.close()
 
 # load data from minio
 data = client.fget_object("database","influxDataLast1Days.csv")
