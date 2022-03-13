@@ -1,0 +1,51 @@
+import subprocess
+from minio import Minio
+import os
+from dotenv import load_dotenv
+from datetime import datetime, timedelta
+load_dotenv()
+
+lastDays = 1
+
+# Get environment variables
+ACCESS_KEY = os.getenv('ACCESS_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY')
+
+client = Minio(
+    "10.0.105.60:9000",
+    access_key=ACCESS_KEY,
+    secret_key=SECRET_KEY,
+    secure=False
+)
+
+# Make 'evidently' bucket if not exist. Durch Evidently existiert schon eins
+
+found = client.bucket_exists("evidently")
+if not found:
+    client.make_bucket("evidently")
+else:
+    print("Bucket 'evidently' already exists")
+
+def writeLastDaysToMinIO(lastDays):
+    end = datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ')
+    start = (datetime.now() - timedelta(days=lastDays)).strftime('%Y-%m-%dT%H:%M:%SZ')
+
+    query = """"SELECT temperature, illuminance, occupancy FROM digitalhhz2.autogen.mqtt_consumer WHERE occupancy = 1 OR occupancy = 0 AND time <= '""" + str(end) + """' and time >= '""" + str(start) + """'  AND topic='DHHZ/024/EntryArea/Motion1'" """
+    cmd = "influx -database 'digitalhhz2' -execute " + query + " -format csv > influxData.csv"
+
+    print('running: ' + cmd)
+    subprocess.call(cmd, shell=True)
+
+    f = open( "influxQueryLast" + str(lastDays) + "Days.sql", 'w' )
+    f.write( cmd + '\n' )
+    f.close()
+
+# load data from minio
+data = client.fget_object("database","influxDataLast1Days.csv")
+
+# save data as file
+with open("test.csv", "w") as file:
+    print(data.data.decode('ascii'),file=file)
+# save data as dataframe
+df = pd.read_csv("test.csv")
+
