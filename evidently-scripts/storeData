@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 from datetime import datetime, timedelta
 load_dotenv()
 
-lastDays = 1
 
 # Get environment variables
 ACCESS_KEY = os.getenv('ACCESS_KEY')
