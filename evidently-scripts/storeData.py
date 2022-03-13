@@ -1,9 +1,19 @@
-import pandas as pd 
+import pandas as pd
 import subprocess
 from minio import Minio
 import os
 from dotenv import load_dotenv
 from datetime import datetime, timedelta
+from evidently.dashboard import Dashboard
+from evidently.dashboard.tabs import DataDriftTab, CatTargetDriftTab
+
+from evidently.model_profile import Profile
+from evidently.model_profile.sections import DataDriftProfileSection, CatTargetDriftProfileSection
+
+import warnings
+warnings.filterwarnings('ignore')
+warnings.simplefilter('ignore')
+
 load_dotenv()
 
 
@@ -18,37 +28,40 @@ client = Minio(
     secure=False
 )
 
-# Make 'evidently' bucket if not exist. Durch Evidently existiert schon eins
+# Make 'evidently' bucket if not exist
 
 found = client.bucket_exists("evidently")
 if not found:
     client.make_bucket("evidently")
 else:
     print("Bucket 'evidently' already exists")
-    
-cmd = client.get_object("evidently","influxQueryLast30Days.sql")
-query= cmd.data.decode('ascii')
 
+data = client.get_object("evidently","influxDataLast30Days.csv")
 
-print('running: ' + query)
-subprocess.call(query, shell=True)
-
-iris_frame = pd.read_csv("influxData.csv")
+# save data as file
+with open("tmp.csv", "w") as file:
+    print(data.data.decode('ascii'),file=file)
+# save data as dataframe
+iris_frame = pd.read_csv("tmp.csv")
 
 # load data from minio
-data = client.fget_object("database","influxDataLast1Days.csv")
+data = client.get_object("database","influxDataLast1Days.csv")
 
 # save data as file
 with open("test.csv", "w") as file:
     print(data.data.decode('ascii'),file=file)
 # save data as dataframe
-current = pd.read_csv("test.csv")
+currentData = pd.read_csv("test.csv")
+
 
 iris_frame['target'] = iris_frame.occupancy
+currentData['target'] = currentData.occupancy
+
+current = int(len(iris_frame.index)*0.03)
 
 #Target and Data Drift Dashboard
 iris_data_and_target_drift_dashboard = Dashboard(tabs=[DataDriftTab(verbose_level=0), CatTargetDriftTab(verbose_level=0)])
-iris_data_and_target_drift_dashboard.calculate(iris_frame[:current], iris_frame[current:], column_mapping=None)
+iris_data_and_target_drift_dashboard.calculate(iris_frame, currentData, column_mapping=None)
 iris_data_and_target_drift_dashboard.show()
 
 iris_data_and_target_drift_dashboard.save('index.html')
