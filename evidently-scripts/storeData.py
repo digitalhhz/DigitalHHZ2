@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 from datetime import datetime, timedelta
 from evidently.dashboard import Dashboard
-from evidently.dashboard.tabs import DataDriftTab, CatTargetDriftTab
+from evidently.dashboard.tabs import DataDriftTab, CatTargetDriftTab, ClassificationPerformanceTab
 
 from evidently.model_profile import Profile
 from evidently.model_profile.sections import DataDriftProfileSection, CatTargetDriftProfileSection
@@ -60,7 +60,7 @@ currentData['target'] = currentData.occupancy
 current = int(len(iris_frame.index)*0.03)
 
 #Target and Data Drift Dashboard
-iris_data_and_target_drift_dashboard = Dashboard(tabs=[DataDriftTab(verbose_level=0), CatTargetDriftTab(verbose_level=0)])
+iris_data_and_target_drift_dashboard = Dashboard(tabs=[DataDriftTab(verbose_level=0), CatTargetDriftTab(verbose_level=0), ClassificationPerformanceTab(verbose_level=0)])
 iris_data_and_target_drift_dashboard.calculate(iris_frame, currentData, column_mapping=None)
 iris_data_and_target_drift_dashboard.show()
 
