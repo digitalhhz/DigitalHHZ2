@@ -8,7 +8,7 @@ from evidently.dashboard import Dashboard
 from evidently.dashboard.tabs import DataDriftTab, CatTargetDriftTab, ClassificationPerformanceTab
 
 from evidently.model_profile import Profile
-from evidently.model_profile.sections import DataDriftProfileSection, CatTargetDriftProfileSection
+from evidently.model_profile.sections import DataDriftProfileSection, CatTargetDriftProfileSection, ClassificationPerformanceTab
 
 import warnings
 warnings.filterwarnings('ignore')
