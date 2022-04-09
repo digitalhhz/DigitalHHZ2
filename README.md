@@ -14,7 +14,7 @@ Implemented a smart lab based on the low-code platform [Node-RED](https://nodere
 * the semi-automated error detection and 
 * the testing of appliances. 
 
-The [**project documentation**](/overall_documentation_DigitalHHZ2.0.pdf) describes the individual components (software and hardware components), as well as other technologies and their installation and configuration.
+The [**project documentation**](/Gesamtdokumentation_DigitalHHZ2.0.pdf) describes the individual components (software and hardware components), as well as other technologies and their installation and configuration.
 
 The **project planning and requirements and task management** was done via Trello. Our Trello board can be accessed at the following URL:
 https://trello.com/b/O8KbgCGB/digital-hhz-20
@@ -24,7 +24,7 @@ Since **version management of Node-RED dashboard flows** uses Node-RED's project
 * internal dashboard: https://github.com/digitalhhz/hhz-dashboard-internal
 * external dashboard (digital.hhz.de): https://github.com/digitalhhz/hhz-dashboard-external
 
-To give a quick **overview of our architecture**, here is a summary of the architecture chapter of our [**project documentation**](/overall_documentation_DigitalHHZ2.0.pdf):
+To give a quick **overview of our architecture**, here is a summary of the architecture chapter of our [**project documentation**](/Gesamtdokumentation_DigitalHHZ2.0.pdf):
 
 ![Figure 1 Digital HHZ architecture](/Architekturbild.png)
 
