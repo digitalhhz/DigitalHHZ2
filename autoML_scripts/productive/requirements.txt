@@ -1,0 +1,7 @@
+pandas
+mljar
+mljar-supervised
+boto3
+minio
+python-dotenv
+flask

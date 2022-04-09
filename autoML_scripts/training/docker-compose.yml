@@ -1,0 +1,8 @@
+services:
+  automl:
+    build: .
+    ports:
+        - "5022:22"
+    volumes:
+        - /home/user/docker/mlflow/autoML/:/opt
+version: '2'

@@ -1,0 +1,47 @@
+version: '3.1'
+
+services:
+    db:
+        restart: always
+        image: mysql/mysql-server:latest
+        container_name: mlflow_db_test
+        expose:
+            - "3306"
+        networks:
+            - mlflow_net
+        env_file:
+            - .env
+        environment:
+            MYSQL_DATABASE: mlflow
+            MYSQL_USER: "${mysql_user}"
+            MYSQL_PASSWORD: "${mysql_password}"
+            MYSQL_ROOT_PASSWORD: "${mysql_root_password}"
+        volumes:
+            - dbdata:/var/lib/mysql
+
+
+    mlflow:
+        restart: always
+        build: ./mlflow
+        image: mlflow_server
+        container_name: mlflow_server_test
+        ports:
+            - "5010:5000"
+        networks:
+            - mlflow_net
+        env_file:
+            - .env
+        environment:
+            MLFLOW_S3_ENDPOINT_URL: "${MLFLOW_S3_ENDPOINT_URL}"
+            AWS_ACCESS_KEY_ID: "${access_key}"
+            AWS_SECRET_ACCESS_KEY: "${secret_key}"
+        command: mlflow server --backend-store-uri mysql+pymysql://${mysql_user}:${mysql_password}@db:3306/mlflow --default-artifact-root s3://mlflowartifact/ --host 0.0.0.0      
+        depends_on: 
+            - db
+
+networks:
+    mlflow_net:
+        driver: bridge
+
+volumes:
+    dbdata:

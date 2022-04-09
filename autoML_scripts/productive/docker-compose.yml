@@ -1,0 +1,6 @@
+services:
+  automl_prod:
+    build: .
+    ports:
+        - "5001:5000"
+version: '2'

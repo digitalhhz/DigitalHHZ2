@@ -1,0 +1,8 @@
+pandas
+scikit-learn
+mljar
+mljar-supervised
+boto3
+mlflow
+minio
+python-dotenv
