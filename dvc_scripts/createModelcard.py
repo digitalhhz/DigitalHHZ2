@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-# run using: python createModelcard.py name_arg overview_arg usecase_arg description_arg
-
 # import sys
 import model_card_toolkit as mctlib
 import tempfile
