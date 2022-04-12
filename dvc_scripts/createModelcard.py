@@ -6,10 +6,19 @@ import tempfile
 import os
 from datetime import datetime
 
-name_arg = "Model card Test Name"
-overview_arg = "Model card Test Overview"
-usecase_arg = "Model card Test Use Cases"
-description_arg = "Model card Test Limitations Description"
+name_arg = "Cogitat AI - Occupancy"
+overview_arg = '''This a decision tree classification model auto-generated using mljar. 
+It aims to classify whether a room is occupied or not based on the features light intensity and 
+temperature. The model is trained on a dataset consisting of sensor values obtained by the 
+digitalhhz infrastructure's database. The respective query is documented in the Documentation 
+section of this Model Card.'''
+usecase_arg = '''The infrastructure that provides the data used to train this model was 
+created by the authors as part of the semester project in the Master degree course Digital Business 
+Engineering at the Herman-Hollerith-Center of Reutlingen University in Boeblingen, Germany. 
+As the second semester project the authors implemented the pipeline which trains, validates, 
+versions, and uses this model. 
+
+The model itself can be used to predict the occupancy of room 026/027 at HHZ.'''
 
 # https://github.com/tensorflow/model-card-toolkit/blob/master/model_card_toolkit/model_card_toolkit.py
 model_card_dir = tempfile.mkdtemp()
@@ -28,34 +37,33 @@ model_card.model_details.name = name_arg
 model_card.model_details.overview = overview_arg
 model_card.model_details.documentation = query
 model_card.model_details.owners = [
-  mctlib.Owner(name='DigitalHHZ', contact='digitalhhz@gmail.com')
+  mctlib.Owner(name='DigitalHHZ', contact='digitalhhz@gmail.com'),
+  mctlib.Owner(name='Andreas Greiss', contact='https://github.com/angrit06'),
+  mctlib.Owner(name='Jonathan Maier', contact='https://github.com/eGGenius'),
+  mctlib.Owner(name='Tilman Welsch', contact='https://github.com/TilmanWelsch'),
+  mctlib.Owner(name='Sedat Yasar', contact='https://github.com/SedatYasar')
 ]
-model_card.model_details.version = mctlib.Version(name='v1.0', date=datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
+model_card.model_details.version = mctlib.Version(name='Cogitat AI v1.0', date=datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
 model_card.model_details.references = [
-    mctlib.Reference(reference='https://www.tensorflow.org/guide/keras/transfer_learning'),
-    mctlib.Reference(reference='https://arxiv.org/abs/1801.04381'),
+    mctlib.Reference(reference='https://github.com/digitalhhz/DigitalHHZ2'),
+    mctlib.Reference(reference='https://github.com/digitalhhz/cogitat'),
+    mctlib.Reference(reference='https://arxiv.org/pdf/1810.03993.pdf'),
 ]
 model_card.model_details.licenses = [mctlib.License(identifier='Apache-2.0')]
-model_card.model_details.citations = [mctlib.Citation(citation='https://github.com/tensorflow/model-card-toolkit/blob/master/model_card_toolkit/documentation/examples/Standalone_Model_Card_Toolkit_Demo.ipynb')]
 
 
 model_card.considerations.use_cases = [
     mctlib.UseCase(description=usecase_arg)
 ]
-model_card.considerations.limitations = [
-    mctlib.Limitation(description=description_arg)
+model_card.considerations.user = [
+    mctlib.user(description="Professors of HHZ"),
+    mctlib.user(description="Students of HHZ"),
+    mctlib.user(description="Guests and visitors of HHZ"),
 ]
-model_card.considerations.ethical_considerations = [mctlib.Risk(
-    name=
-        'Ethical considerartions'
-        'risk name',
-    mitigation_strategy=
-        'Ethical considerations risk mitigation strategy'
-)]
 
 mct.update_model_card(model_card)
 
-# Generate a model card document in HTML (default)
+# Generate a model card document in HTML
 html_path = os.path.join(model_card_dir, 'template/html/default_template.md.jinja')
 html_doc = mct.export_format(template_path=html_path)
 file = open("model_card.html","w")
