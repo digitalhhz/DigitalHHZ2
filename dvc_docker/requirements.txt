@@ -1,0 +1,5 @@
+python-dotenv
+minio
+model-card-toolkit>=1.0.0,<1.1
+dvc[s3]
+tensorflow>=2.3.1
