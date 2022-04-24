@@ -1,0 +1,12 @@
+version: '3'
+services:
+  dvc:
+    build: .
+    env_file:
+      - .env
+    environment:
+      GITUSER: "${GIT_USER}"
+      GITPAT: "${GIT_ACCESS_TOKEN}"
+    container_name: dvc_control
+    ports:
+      - "3022:22"
